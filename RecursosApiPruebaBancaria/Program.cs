@@ -4,12 +4,23 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(builder.Configuration["Mycors"], builder =>
+    {
+        builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+    });
+});
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c=> {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Recursos Api Prueba Bancaria", Version = "v1" });
 
@@ -76,5 +87,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(builder.Configuration["Mycors"]);
 
 app.Run();
