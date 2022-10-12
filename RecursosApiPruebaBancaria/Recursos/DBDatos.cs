@@ -112,7 +112,7 @@ namespace RecursosApiPruebaBancaria.Recursos
         public static string EjecutarDato(string nombreProcedimiento, List<Parametro> parametros = null)
         {
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-
+            string resultado = "";
             try
             {
                 conexion.Open();
@@ -126,16 +126,13 @@ namespace RecursosApiPruebaBancaria.Recursos
                         cmd.Parameters.AddWithValue(parametro.Nombre, parametro.Valor);
                     }
                 }
+                cmd.Parameters.Add("@ParametroSalida", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
 
-                DataTable tabla = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
+                int i = cmd.ExecuteNonQuery();
 
-                string resultado ="";
-
-                if (tabla.Rows.Count > 0)
+                if (i > 0)
                 {
-                    resultado = (string) tabla.Rows[0]["Result"];
+                    resultado = cmd.Parameters["@ParametroSalida"].Value.ToString();
                 }
 
                 return resultado;
