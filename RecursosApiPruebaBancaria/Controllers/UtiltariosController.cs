@@ -24,9 +24,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<MQTIPOCALCULO02>>(json)
+                    MQTIPOCALCULO02 = JsonConvert.DeserializeObject<List<MQTIPOCALCULO02>>(json)
                 }
             };
         }
@@ -40,9 +40,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<MQTIPOROLES09>>(json)
+                    MQTIPOROLES09 = JsonConvert.DeserializeObject<List<MQTIPOROLES09>>(json)
                 }
             };
         }
@@ -57,9 +57,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<MDROLPERSONA13>>(json)
+                    MDROLPERSONA13 = JsonConvert.DeserializeObject<List<MDROLPERSONA13>>(json)
                 }
             };
         }
@@ -75,9 +75,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<MQTIPORELACION08>>(json)
+                    MQTIPORELACION08 = JsonConvert.DeserializeObject<List<MQTIPORELACION08>>(json)
                 }
             };
         }
@@ -98,9 +98,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<ListaPersonalPorRol>>(json)
+                    ListaPersonalPorRol = JsonConvert.DeserializeObject<List<ListaPersonalPorRol>>(json)
                 }
             };
         }

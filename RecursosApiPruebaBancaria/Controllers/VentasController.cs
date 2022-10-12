@@ -28,9 +28,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<VentasCAB>>(json)
+                    VentasCAB = JsonConvert.DeserializeObject<List<VentasCAB>>(json)
                 }
             };
         }
@@ -50,9 +50,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Result = JsonConvert.DeserializeObject<List<VentasDET>>(json)
+                    VentasDET = JsonConvert.DeserializeObject<List<VentasDET>>(json)
                 }
             };
         }
@@ -75,7 +75,7 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = "Operacion Realizada con exito"
+                data = "Operacion Realizada con exito"
             };
         }
         [HttpPost]
@@ -96,8 +96,8 @@ namespace RecursosApiPruebaBancaria.Controllers
             return new
             {
                 success = true,
-                message = "exito",
-                result = "Operacion Realizada con exito"
+                message = "Operacion Realizada con exito",
+                data = ""
             };
         }
 
@@ -115,8 +115,8 @@ namespace RecursosApiPruebaBancaria.Controllers
             return new
             {
                 success = true,
-                message = "exito",
-                result = "Operacion Realizada con exito"
+                message = "Operacion Realizada con exito",
+                data = ""
             };
             //
         }

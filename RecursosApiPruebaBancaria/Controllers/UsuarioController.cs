@@ -56,7 +56,7 @@ namespace RecursosApiPruebaBancaria.Controllers
                 {
                     success = false,
                     message = "Credenciales no Validas",
-                    result=""
+                    data=""
                 };
             }
 
@@ -86,7 +86,7 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "Exitos",
-                result = "Bearer " + new JwtSecurityTokenHandler().WriteToken(token)
+                data = new JwtSecurityTokenHandler().WriteToken(token)
             };
         }
     }

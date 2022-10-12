@@ -37,9 +37,9 @@ namespace RecursosApiPruebaBancaria.Controllers
             {
                 success = true,
                 message = "exito",
-                result = new
+                data = new
                 {
-                    Productos = JsonConvert.DeserializeObject<List<ListaProducto>>(jsonProductos)
+                    ListaProducto = JsonConvert.DeserializeObject<List<ListaProducto>>(jsonProductos)
                 }
             };
         }
@@ -63,8 +63,8 @@ namespace RecursosApiPruebaBancaria.Controllers
             return new
             {
                 success = true,
-                message = "exito",
-                result = "Operacion Realizada con exito"
+                message = "Operacion Realizada con exito",
+                result = ""
             };
         }
     }
