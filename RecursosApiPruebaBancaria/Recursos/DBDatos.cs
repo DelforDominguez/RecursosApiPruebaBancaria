@@ -97,12 +97,52 @@ namespace RecursosApiPruebaBancaria.Recursos
                 }
 
                 int i = cmd.ExecuteNonQuery();
-
+        
                 return (i > 0) ? true : false;
             }
             catch (Exception ex)
             {
                 return false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+        public static string EjecutarDato(string nombreProcedimiento, List<Parametro> parametros = null)
+        {
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(nombreProcedimiento, conexion);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                if (parametros != null)
+                {
+                    foreach (var parametro in parametros)
+                    {
+                        cmd.Parameters.AddWithValue(parametro.Nombre, parametro.Valor);
+                    }
+                }
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+
+                string resultado ="";
+
+                if (tabla.Rows.Count > 0)
+                {
+                    resultado = (string) tabla.Rows[0]["Result"];
+                }
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
             finally
             {

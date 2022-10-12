@@ -68,14 +68,14 @@ namespace RecursosApiPruebaBancaria.Controllers
                 new Parametro("@iIdVendedor12", Convert.ToString(Datos.IdVendedor12)),
                 new Parametro("@iIdCliente12", Convert.ToString(Datos.IdCliente12)),
             };
-
-            DBDatos.Ejecutar("pa_ActualizarRegVentas", parametros);
+            string Result = "";
+            Result=DBDatos.EjecutarDato("pa_ActualizarRegVentas", parametros);
 
             return new
             {
                 success = true,
                 message = "exito",
-                data = "Operacion Realizada con exito"
+                data = Result
             };
         }
         [HttpPost]
@@ -91,13 +91,14 @@ namespace RecursosApiPruebaBancaria.Controllers
                 new Parametro("@dMontoDesembolsado27", Convert.ToString(Datos.MontoDesembolsado27)),
             };
 
-            DBDatos.Ejecutar("pa_ActulizarRegVentasDET", parametros);
+            string Result = "";
+            Result = DBDatos.EjecutarDato("pa_ActulizarRegVentasDET", parametros);
 
             return new
             {
                 success = true,
                 message = "Operacion Realizada con exito",
-                data = ""
+                data = Result
             };
         }
 
