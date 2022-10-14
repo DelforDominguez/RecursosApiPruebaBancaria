@@ -36,6 +36,7 @@ namespace RecursosApiPruebaBancaria.Controllers
             List<DataRow> list = dt.AsEnumerable().ToList();
 
             List<MQUSUARIOSISTEMA15> usuario = new List<MQUSUARIOSISTEMA15>();
+
             usuario = (from DataRow row in dt.Rows
 
                    select new MQUSUARIOSISTEMA15
@@ -46,11 +47,12 @@ namespace RecursosApiPruebaBancaria.Controllers
                        Password15 = row["Password15"].ToString(),
                        Estado15 = Convert.ToInt32(row["Estado15"].ToString())
                    }).ToList();
+
             MQUSUARIOSISTEMA15 usuarioValida = usuario.FirstOrDefault(x => x.Usuario15 == user && x.Password15==password);
 
 
 
-            if (usuario == null)
+            if (usuarioValida == null)
             {
                 return new
                 {

@@ -92,7 +92,7 @@ namespace RecursosApiPruebaBancaria.Controllers
                 new Parametro("@iId09", Convert.ToString(Id09)),
                 new Parametro("@iId08", Convert.ToString(Id08)),
             };
-            DataTable dt = DBDatos.Listar("pa_ListarPersonalPorRol");
+            DataTable dt = DBDatos.Listar("pa_ListarPersonalPorRol", parametros);
             string json = JsonConvert.SerializeObject(dt);
             return new
             {
