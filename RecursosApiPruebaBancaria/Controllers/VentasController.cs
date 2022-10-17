@@ -78,6 +78,7 @@ namespace RecursosApiPruebaBancaria.Controllers
                 data = Result
             };
         }
+
         [HttpPost]
         [Route("ModificarDET")]
         public dynamic ModificarDET([FromBody] RegVentasDet Datos)
